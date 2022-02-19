@@ -1,5 +1,4 @@
-package ContextListeners;
-
+package teletigers.merch.store.users;
 import static java.lang.Character.toLowerCase;
 
 public class User
@@ -10,9 +9,12 @@ public class User
     private static String email;
     private static String address;
     
-    //Getters and Setter
-    //___Setter___
-    public void setUser(String uname, String pword, String roll, String mail, String add)
+    
+    //___Constructor
+    public User(){
+    }
+    
+    public User(String uname, String pword, String roll, String mail, String add)
     {
         username = uname;
         password = pword;
@@ -21,6 +23,7 @@ public class User
         address = add;
     }
     
+    //Getters and Setter
     
     //____Username Getter____
     //Gets the Username
