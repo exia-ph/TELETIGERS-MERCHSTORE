@@ -10,6 +10,17 @@ public class User
     private static String email;
     private static String address;
     
+
+    //Constructors
+    public User(String uname, String pword, String roll, String mail, String add)
+    {
+        username = uname;
+        password = pword;
+        role = roll;
+        email = mail;
+        address = add;
+    }
+    
     //Getters and Setter
     //___Setter___
     public void setUser(String uname, String pword, String roll, String mail, String add)
