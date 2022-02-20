@@ -12,6 +12,8 @@ public class User
     
 
     //Constructors
+    public User(){}
+
     public User(String uname, String pword, String roll, String mail, String add)
     {
         username = uname;
