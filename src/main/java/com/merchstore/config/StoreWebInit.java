@@ -8,14 +8,13 @@ public class StoreWebInit extends AbstractAnnotationConfigDispatcherServletIniti
     @Override
     protected Class<?>[] getRootConfigClasses()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return new Class[] {StoreConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses()
     {
-        return new Class[] {StoreConfig.class};
+        return null;
     }
 
     @Override

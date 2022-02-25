@@ -1,38 +1,20 @@
 <!DOCTYPE html>
-<%@page import="java.sql.*"
-        import = "ContextListeners.User"
-%>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
     <head>
         <title>Store Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/store_style.css">
-        <script src="${pageContext.request.contextPath}/javascripts/store.js" async></script>
+        <link rel="stylesheet" href="/css/store_style.css" th:href="@{/css/store_style.css}">
+        <script th:src="@{/javascripts/store.js}" async></script>
     </head>
     <body class="bg">
-        <%
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            String userDB = "app";
-            String passDB = "app";
-            String url = "jdbc:derby://localhost:1527/ItemDB";
-            
-            Connection con = DriverManager.getConnection(url, userDB, passDB);
-            String query = "SELECT * FROM ITEM_DB";
-            PreparedStatement pStmt = con.prepareStatement(query);
-            
-            ResultSet rs = pStmt.executeQuery();
-              
-            String header = getServletContext().getInitParameter("header");
-            String footer = getServletContext().getInitParameter("footer");
-        %>
         
         <div class="menu-bar" id="menu">
             <div class="logo">
-                <a href="#"><% out.println(header); %></a>
+                <a href="#" th:text="${header}"></a>
             </div>
 
-            <a href="javascript:void(0)" class="opener" onclick="openCart()"><img src="${pageContext.request.contextPath}/css/images/shopping_cart_icon.png" id="icon"></a>
+            <a href="javascript:void(0)" class="opener" onclick="openCart()"><img src="/images/shopping_cart_icon.png" th:src="@{/images/shopping_cart_icon.png}" id="icon"></a>
 	</div>
         
         
@@ -50,85 +32,69 @@
         
         <div class="grid" id="grid">
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/hoodie.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/hoodie.png" th:src="@{/images/hoodie.png}" id="item_photo"></a>
+                <span class="shop-item">hoodie</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/t_shirt.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/t_shirt.png" th:src="@{/images/t_shirt.png}" id="item_photo"></a>
+                <span class="shop-item">w-neck</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/mug.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/mug.png" th:src="@{/images/mug.png}" id="item_photo"></a>
+                <span class="shop-item">cuphead</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/tumbler.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/tumbler.png" th:src="@{/images/tumbler.png}" id="item_photo"></a>
+                <span class="shop-item">former nsfw haven</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/face_mask.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/face_mask.png" th:src="@{/images/face_mask.png}" id="item_photo"></a>
+                <span class="shop-item">anti-karen shield</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/poster.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/poster.png" th:src="@{/images/poster.png}" id="item_photo"></a>
+                <span class="shop-item">displate</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/beanie.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/beanie.png" th:src="@{/images/beanie.png}" id="item_photo"></a>
+                <span class="shop-item">baldness concealer</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/cap.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/cap.png" th:src="@{/images/cap.png}" id="item_photo"></a>
+                <span class="shop-item">no cap</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/wristband.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/wristband.png" th:src="@{/images/wristband.png}" id="item_photo"></a>
+                <span class="shop-item">man bracelet</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
             <div class="item">
-                <a><img src="${pageContext.request.contextPath}/css/images/cellphone_case.png" id="item_photo"></a>
-                <%rs.next();%>
-                <span class="shop-item"><%out.print(rs.getString("ITEM_NAME"));%></span>
-                <span class="shop-price"><%out.print("$" + String.format("%.2f", Float.parseFloat(rs.getString("ITEM_PRICE"))));%></span>
+                <a><img src="/css/images/cellphone_case.png" th:src="@{/images/cellphone_case.png}" id="item_photo"></a>
+                <span class="shop-item">cellphone case</span>
+                <span class="shop-price">420.69</span>
                 <button class="cart-actions add">Add to Cart</button>
             </div>
         </div>
                 
         <div class="footer">
-            <a href=#><% out.println(footer); %></a>
-	</div>        
-                
-        <%
-            rs.close();
-            pStmt.close();
-            con.close();
-        %>
+            <a href=# th:text="${footer}"></a>
+	    </div>        
     </body>
 </html>

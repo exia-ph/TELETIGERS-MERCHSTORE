@@ -1,6 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
     <head>
         <title>Success</title>
         <meta charset="UTF-8">
@@ -12,12 +11,10 @@
     </head>
     <body>
         
-        <%
-            String header = getServletContext().getInitParameter("header");
-            String footer = getServletContext().getInitParameter("footer");
-        %>
-
+        <p th:text="${header}"></p>
+        <p th:text="${footer}"></p>
         
-        <a href="store.jsp" id="welcome"><% out.println(header); %></a>
+        <a href="store.html" th:href="@{/store}" id="welcome"><h1 th:text=" ${header} "></h1></a>
+        <a href="login.html" th:href="@{/login}" id="welcome"><h1>Go to log in</h1></a>
     </body>
 </html>

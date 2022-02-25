@@ -1,11 +1,10 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register Page</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register_style.css">
+        <link th:href="@{/css/register_style.css}" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
         <script src="${pageContext.request.contextPath}/javascripts/captchaRefresh.js"></script>
@@ -15,20 +14,15 @@
     </head>
     
     <body>
-        <%    
-            String header = getServletContext().getInitParameter("header");
-            String footer = getServletContext().getInitParameter("footer"); 
-        %>
-        
         <div class="navbar">
             <div class="logo">
-                <a href="#"><% out.println(header); %></a>
+                <a href="#" th:text="${header}"></a>
             </div>
 	</div>
             
         
         <div class="box">
-            <form action="${pageContext.request.contextPath}/ServletRegister" method="post">
+            <form action="register" method="post">
 
                 <h1 class="typewriter">Register<a id="blink">_</a></h1>
 
@@ -64,7 +58,7 @@
 
                 
         <div class="footer">
-            <a href=#><% out.println(footer); %></a>
+            <a href=# th:text="${footer}"></a>
 	</div>
         
         <section>

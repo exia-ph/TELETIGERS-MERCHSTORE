@@ -1,4 +1,4 @@
-package com.tigernex.store.test;
+package com.merchstore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
