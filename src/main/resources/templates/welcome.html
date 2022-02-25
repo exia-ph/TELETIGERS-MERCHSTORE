@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Success</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/welcome_style.css">
+        <script src="${pageContext.request.contextPath}/javascripts/fixcss.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="shortcut icon" href="${pageContext.request.contextPath}/css/images/apc.png" type="image/x-icon">
+    </head>
+    <body>
+        
+        <p th:text="${header}"></p>
+        <p th:text="${footer}"></p>
+        
+        <a href="store.html" th:href="@{/store}" id="welcome"><h1 th:text=" ${header} "></h1></a>
+        <a href="login.html" th:href="@{/login}" id="welcome"><h1>Go to log in</h1></a>
+    </body>
+</html>

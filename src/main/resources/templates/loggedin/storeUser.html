@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>Store Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/storeUser_style.css">
+        <script src="${pageContext.request.contextPath}/javascripts/store.js" async></script>
+    </head>
+    <body class="bg">
+        <div class="menu-bar" id="menu">
+            <div class="logo">
+                <a href="#" th:text="${header}"></a>
+            </div>
+            
+            <p id="WellUser"></p>
+            <a href="javascript:void(0)" class="opener" onclick="openCart()"><img src="/images/shopping_cart_icon.png" th:src="@{/images/shopping_cart_icon.png}" id="icon"></a>
+	</div>
+        
+        
+        <div class="cart" id="cart">
+            <a href="javascript:void(0)" class="close" onclick="closeCart()">&times;</a>
+            <h2 id="cart_header">Cart</h2>
+            <div class="cart-actual"></div>
+            <div class="cart-total">
+                <span class="total-total">Total:</span>
+                <span class="total-price">$0.00</span>
+            </div>
+            <button class="checkout">Proceed to Checkout</button>
+        </div>
+        
+        
+        <div class="grid" id="grid">
+            <div class="item">
+                <a><img src="/css/images/hoodie.png" th:src="@{/images/hoodie.png}" id="item_photo"></a>
+                <span class="shop-item">hoodie</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/t_shirt.png" th:src="@{/images/t_shirt.png}" id="item_photo"></a>
+                <span class="shop-item">w-neck</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/mug.png" th:src="@{/images/mug.png}" id="item_photo"></a>
+                <span class="shop-item">cuphead</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/tumbler.png" th:src="@{/images/tumbler.png}" id="item_photo"></a>
+                <span class="shop-item">former nsfw haven</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/face_mask.png" th:src="@{/images/face_mask.png}" id="item_photo"></a>
+                <span class="shop-item">anti-karen shield</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/poster.png" th:src="@{/images/poster.png}" id="item_photo"></a>
+                <span class="shop-item">displate</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/beanie.png" th:src="@{/images/beanie.png}" id="item_photo"></a>
+                <span class="shop-item">baldness concealer</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/cap.png" th:src="@{/images/cap.png}" id="item_photo"></a>
+                <span class="shop-item">no cap</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/wristband.png" th:src="@{/images/wristband.png}" id="item_photo"></a>
+                <span class="shop-item">man bracelet</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+            <div class="item">
+                <a><img src="/css/images/cellphone_case.png" th:src="@{/images/cellphone_case.png}" id="item_photo"></a>
+                <span class="shop-item">cellphone case</span>
+                <span class="shop-price">420.69</span>
+                <button class="cart-actions add">Add to Cart</button>
+            </div>
+        </div>
+                
+        <div class="footer">
+            <a href=# th:text="${footer}"></a>
+	    </div>     
+    </body>
+</html>
